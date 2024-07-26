@@ -61,7 +61,6 @@ def editCustomer(request, id):
     customer = Customer.objects.get(pk=id)
     customerForm = CustomerForm(instance=customer)
     context = {'customerForm': customerForm}
-    print("Test")
     return render(request, template_name='store/AddCustomer.html', context=context)
 
 
