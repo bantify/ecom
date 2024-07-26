@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Add Product {% endblock %}
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li{% if message.tags %} class="grp-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% block content %}
+    {% if form.instance.pk %}
+        <h2> Update Product </h2>
+    {% else %}
+        <h2> Add Product </h2>
+    {% endif %}
+    <form action="{% url 'addProduct' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input type="submit" name="save">
+    </form>
+{% endblock %}
