@@ -1,6 +1,10 @@
-# This is a sample e-commerce Application 
+# This is a sample e-commerce Application
+
 ## Techonologies
-   * Python
-   * django
-   * sqlite
+
+* Python
+* django
+* sqlite
+* Bootstrap
+* jQuery
    
