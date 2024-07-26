@@ -61,6 +61,7 @@ def editCustomer(request, id):
     customer = Customer.objects.get(pk=id)
     customerForm = CustomerForm(instance=customer)
     context = {'customerForm': customerForm}
+    print("Test")
     return render(request, template_name='store/AddCustomer.html', context=context)
 
 
@@ -113,14 +114,14 @@ class ProductListView(ListView):
     model = Product
 
 
-class CustomerCreateView(SuccessMessageMixin,CreateView):
+class CustomerCreateView(SuccessMessageMixin, CreateView):
     form_class = CustomerForm
     template_name = 'store/AddCustomer.html'
     success_message = "Customer %(name)s created successfully"
     success_url = reverse_lazy("listCustomer")
 
 
-class CustomerUpdateView(SuccessMessageMixin,UpdateView):
+class CustomerUpdateView(SuccessMessageMixin, UpdateView):
     model = Customer
     form_class = CustomerForm
     template_name = 'store/AddCustomer.html'
@@ -135,14 +136,14 @@ class CustomerDeleteView(DeleteView):
     success_url = reverse_lazy("listCustomer")
 
 
-class ProductCreateView(SuccessMessageMixin,CreateView):
+class ProductCreateView(SuccessMessageMixin, CreateView):
     form_class = ProductForm
     template_name = 'store/AddProduct.html'
     success_message = "Product %(name)s created successfully"
     success_url = reverse_lazy("listProduct")
 
 
-class ProductUpdateView(SuccessMessageMixin,UpdateView):
+class ProductUpdateView(SuccessMessageMixin, UpdateView):
     form_class = ProductForm
     template_name = 'store/AddProduct.html'
     success_message = "Product %(name)s updated successfully"
